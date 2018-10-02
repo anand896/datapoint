@@ -1,0 +1,79 @@
+{{title}}
+
+{{result}}
+
+<ul *ngIf="result">
+  <li *ngFor="let answer of users">
+    {{answer}}
+  </li>
+</ul>
+  <button (click)="show()">Enter</button>
+
+
+<ul>
+  <li>
+    Name
+  </li>
+  <li>
+    <input type="text" #username /><span *ngIf="result">Enter validate name</span>
+  </li>
+  <li>
+    <button (click)="validate(username.value)">Enter</button>
+  </li>
+  <li>
+    {{mgs}}
+  </li>
+</ul>
+
+
+<app-header></app-header>
+
+<app-footer></app-footer>
+
+<!-- <a href="/">About</a><br> -->
+<!-- <a href="/contact">Contact</a><br> -->
+<!-- <a href="/product">Product</a><br> -->
+
+<a routerLink ="/" routerLinkActive="active">About</a><br>  <!--routerLink reloads the page without refreshing -->
+<a routerLink ="/contact" routerLinkActive="active">contact</a><br>
+<a routerLink ="/product" routerLinkActive="active">product</a><br>
+<router-outlet></router-outlet> <!-- responsible for data show -->
+
+<img [src]="path">  <!-- property binding and interpolation binding -->
+
+
+<table border="1" width="200"> <!-- attribute binding -->
+  <tr>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+  <tr>
+    <td [attr.colspan]="colval">test</td>
+  </tr>
+  
+</table>
+
+<button class="btn btn-danger" [class.btn.lg]="btntype1">hello1</button>
+<button class="btn btn-danger" [class.btn.lg]="btntype2">hello2</button>
+<br>
+<button class="btn btn-danger" [style.background]="colorname1">hello1</button> <!-- style binding -->
+<button class="btn btn-danger" [style.background]="colorname2">hello2</button>
+
+
+
+
+<!-- binding with filtr -->
+<br>
+<input type="text" (keyup.enter)="callMethod()">
+
+
+<br>
+<!-- two way binding -->
+
+<input type="text" [(ngModel)]="useremail"/>
+<input type="text" [(ngModel)]="usermobile"/>
+
+<h1>{{useremail}}</h1>
+<h1>{{usermobile}}</h1>
+
+
